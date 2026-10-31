@@ -116,6 +116,29 @@
         </div>
     </div>
 
+    <!-- JOB APPLICATION MODAL -->
+    <div id="jobModal" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeJobForm()" aria-label="Close modal">&times;</button>
+            <div style="margin-bottom: 20px;">
+                <h2 id="jobTitle" style="color: var(--ink); font-size: 1.4rem; font-weight: 800; margin-bottom: 4px;">Apply for Position</h2>
+                <p style="color: #64748b; font-size: 0.9rem;">Submit your resume and details securely.</p>
+            </div>
+            <form id="jobForm" onsubmit="handleAjaxForm(event, 'jobForm', 'jobThankYou')" style="display: flex; flex-direction: column; gap: 12px;">
+                <input type="hidden" name="_subject" value="Job Application - Zen Alpha">
+                <input type="text" name="name" class="enterprise-input" placeholder="Full Name" required>
+                <input type="email" name="email" class="enterprise-input" placeholder="Email Address" required>
+                <input type="tel" name="phone" class="enterprise-input" placeholder="Phone Number" required>
+                <textarea name="cover_letter" class="enterprise-input" placeholder="Brief experience summary..." rows="3" style="resize: none;" required></textarea>
+                <button type="submit" class="btn" style="width: 100%; padding: 12px; border-radius: 10px;">Submit Application</button>
+            </form>
+            <div id="jobThankYou" style="display: none; text-align: center; padding: 30px 0;">
+                <h3 style="color: #10b981; font-size: 1.4rem; margin-bottom: 10px;">Application Submitted!</h3>
+                <p style="color: var(--ink);">Our HR team will review your profile and reach out.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- HEADER -->
     <header>
         <div class="logo-box" onclick="switchPage('home')">
@@ -153,7 +176,7 @@
             <div class="dropdown">
                 <span class="dropbtn">Outsourcing ▾</span>
                 <div class="dropdown-content">
-                    <a href="#jobs" onclick="switchPage('jobs')">Full/Part Time Hiring</a>
+                    <a href="#jobs-outsourcing" onclick="switchPage('jobs-outsourcing')">Full/Part Time Hiring</a>
                     <a href="#freelance" onclick="switchPage('freelance')">Freelancing Projects</a>
                     <a href="#consultancy" onclick="switchPage('consultancy')">Consultancy & BPO</a>
                 </div>
@@ -161,8 +184,6 @@
             
             <a href="#blogs" onclick="switchPage('blogs')">Blogs</a>
             <a href="#careers" onclick="switchPage('careers')">Careers</a>
-            <a href="#privacy" onclick="switchPage('privacy')">Privacy Policy</a>
-            <a href="#terms" onclick="switchPage('terms')">Terms & Conditions</a>
             <a href="#contact" onclick="switchPage('contact')">Contact</a>
         </nav>
     </header>
@@ -179,7 +200,7 @@
                     <button class="btn" style="background: white; color: var(--ink); border: 2px solid var(--border); margin-left: 10px;" onclick="openPopup()">Quick Enquiry</button>
                 </div>
                 <div>
-                    <img src="/images/hero-tech.jpg" alt="Enterprise Software Development" width="600" height="400" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80" alt="Enterprise Software Development" width="600" height="400" loading="lazy">
                 </div>
             </section>
 
@@ -201,146 +222,163 @@
                     <div class="card" onclick="switchPage('bulk-whatsapp')"><h3>Bulk WhatsApp API</h3><p>Official communication channels to connect with clients securely and efficiently.</p></div>
                     <div class="card" onclick="switchPage('website-dev')"><h3>Website Development</h3><p>Clean, fast, and conversion-focused business websites and e-commerce stores.</p></div>
                     <div class="card" onclick="switchPage('seo-ppc')"><h3>SEO / PPC Campaigns</h3><p>Data-driven search optimization and ad campaigns to maximize brand visibility.</p></div>
-                    <div class="card" onclick="switchPage('jobs')"><h3>Staff Outsourcing</h3><p>Dedicated remote developers, marketers, and support teams tailored to your SOPs.</p></div>
+                    <div class="card" onclick="switchPage('jobs-outsourcing')"><h3>Staff Outsourcing</h3><p>Dedicated remote developers, marketers, and support teams tailored to your SOPs.</p></div>
                 </div>
             </section>
         </div>
 
         <!-- ABOUT PAGE -->
         <div id="page-about" class="page-section">
-            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">About Zen Alpha</h1>
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">About Zen Alpha Solutions</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Zen Alpha Solutions is headquartered in New Delhi, delivering robust technology, AI integrations, and digital marketing strategies to businesses globally.</p>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">We specialize in building scalable software architectures, deploying efficient AI workflow agents, and managing high-performance digital marketing campaigns with total compliance and transparency.</p>
         </div>
 
         <!-- AI PAGE -->
         <div id="page-ai" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Artificial Intelligence Solutions</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">We build autonomous AI agents, fine-tune enterprise LLMs, and automate repetitive workflows securely.</p>
-            <button class="btn" onclick="openPopup()">Enquire About AI</button>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Transform your enterprise operations with cutting-edge AI integrations. We build autonomous agents, fine-tune custom models, and automate complex workflows.</p>
+            <button class="btn" onclick="openPopup()">Enquire About AI Services</button>
         </div>
 
         <!-- SOFTWARE PAGE -->
         <div id="page-software" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Software & App Development</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Custom web applications and mobile apps built using React, Node.js, Python, and modern cloud stacks.</p>
-            <button class="btn" onclick="openPopup()">Discuss Your Project</button>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Custom web applications and high-performance mobile apps engineered using modern tech stacks like React, Node.js, Python, and cloud infrastructure.</p>
+            <button class="btn" onclick="openPopup()">Discuss Your Software Project</button>
         </div>
 
         <!-- CONSULTING PAGE -->
         <div id="page-consulting" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">IT Consulting & vCTO Services</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Expert technical leadership, architecture reviews, cloud migration strategies, and security audits.</p>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Get strategic technical leadership without full-time overheads. We audit security, plan system architecture, and guide digital transformation.</p>
             <button class="btn" onclick="openPopup()">Book a Consultation</button>
         </div>
 
         <!-- BULK SMS PAGE -->
         <div id="page-bulk-sms" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Bulk SMS Services</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Fast transactional and promotional SMS delivery with 99.9% uptime and DLT compliance support.</p>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Reliable transactional and promotional messaging infrastructure with 99.9% uptime, DLT compliance, and instant delivery reports.</p>
             <button class="btn" onclick="openPopup()">Get SMS Pricing</button>
         </div>
 
         <!-- BULK EMAIL PAGE -->
         <div id="page-bulk-email" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Bulk Email Campaigns</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">High inbox placement rates backed by proper SPF, DKIM, and DMARC authentication protocols.</p>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Execute high-converting email outreach campaigns with robust domain authentication (SPF, DKIM, DMARC) for maximum inbox placement.</p>
             <button class="btn" onclick="openPopup()">Start Email Campaign</button>
         </div>
 
         <!-- BULK WHATSAPP PAGE -->
         <div id="page-bulk-whatsapp" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Bulk WhatsApp API</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Official Meta WhatsApp API integration for automated alerts and secure client communication.</p>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Connect with your customers securely using official Meta WhatsApp Business APIs, automated template messaging, and chat workflows.</p>
             <button class="btn" onclick="openPopup()">Setup WhatsApp API</button>
         </div>
 
         <!-- WEBSITE DEV PAGE -->
         <div id="page-website-dev" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Website Development</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Lightning-fast, SEO-optimized business websites and high-conversion e-commerce stores.</p>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Lightning-fast, mobile-responsive, and SEO-optimized business websites and e-commerce platforms designed to convert visitors into loyal clients.</p>
             <button class="btn" onclick="openPopup()">Build Your Website</button>
         </div>
 
         <!-- SEO / PPC PAGE -->
         <div id="page-seo-ppc" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">SEO / PPC Campaigns</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Dominate search engine rankings and maximize ROI through targeted Google and Meta ad campaigns.</p>
-            <button class="btn" onclick="openPopup()">Boost Your SEO</button>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Dominate search engine results and drive targeted traffic through expert organic SEO and high-ROI Google/Meta paid ad campaigns.</p>
+            <button class="btn" onclick="openPopup()">Boost Your SEO & PPC</button>
         </div>
 
-        <!-- JOBS PAGE -->
-        <div id="page-jobs" class="page-section">
+        <!-- JOBS OUTSOURCING PAGE -->
+        <div id="page-jobs-outsourcing" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Full/Part Time Hiring & Staff Augmentation</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Hire pre-vetted engineers and marketing professionals on flexible remote models without HR overheads.</p>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Scale your team instantly by hiring pre-vetted remote software engineers, developers, and digital marketers tailored to your workflows.</p>
             <button class="btn" onclick="openPopup()">Hire Dedicated Talent</button>
         </div>
 
         <!-- FREELANCE PAGE -->
         <div id="page-freelance" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Freelancing Projects</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">End-to-end milestone-based project execution for web apps, software modules, and marketing milestones.</p>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Milestone-based project execution for custom software modules, web apps, and targeted marketing campaigns delivered on time.</p>
             <button class="btn" onclick="openPopup()">Outsource Project</button>
         </div>
 
         <!-- CONSULTANCY BPO PAGE -->
         <div id="page-consultancy" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Consultancy & BPO Services</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">24/7 omnichannel customer support, telecalling, lead generation, and back-office operations.</p>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">24/7 omnichannel customer support, telecalling, lead generation, and efficient back-office operations handled by trained professionals.</p>
             <button class="btn" onclick="openPopup()">Enquire About BPO</button>
         </div>
 
         <!-- BLOGS PAGE -->
         <div id="page-blogs" class="page-section">
-            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Zen Alpha Tech & Business Blog</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 30px;">Insights on Artificial Intelligence, Software Engineering, and Digital Transformation.</p>
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Zen Alpha Insights & Articles</h1>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 30px;">Practical guides and thoughts on software development, digital marketing, and business growth.</p>
             <div class="grid-3">
-                <div class="card" onclick="openPopup()"><h3>Practical Ways to Use AI in Business</h3><p>Simple steps for growing enterprises to adopt smart automation.</p></div>
-                <div class="card" onclick="openPopup()"><h3>Why Website Speed Matters</h3><p>Improving conversion rates through technical performance optimization.</p></div>
-                <div class="card" onclick="openPopup()"><h3>Staff Augmentation vs Hiring</h3><p>Evaluating flexible remote teams for agile project delivery.</p></div>
+                <div class="card" onclick="openPopup()"><h3>Practical Ways to Use AI in Small Businesses</h3><p>A straightforward look at how growing enterprises can implement automation without heavy setup costs...</p></div>
+                <div class="card" onclick="openPopup()"><h3>Why Website Speed Matters for Local Business Leads</h3><p>How slow loading times affect user experience and why optimizing technical performance improves conversions...</p></div>
+                <div class="card" onclick="openPopup()"><h3>Evaluating In-House Hiring vs. Staff Augmentation</h3><p>Comparing the costs, flexibility, and time-to-market advantages of working with external technical teams...</p></div>
             </div>
         </div>
 
         <!-- CAREERS PAGE -->
         <div id="page-careers" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Careers at Zen Alpha</h1>
-            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 30px;">Join our growing technology team. Send your resume to our HR desk.</p>
-            <button class="btn" onclick="openPopup()">Send Resume</button>
+            <p style="font-size: 1.1rem; color: #475569; margin-bottom: 30px;">Explore our open positions and join a collaborative team focused on building quality digital products.</p>
+            <div class="grid-3">
+                <div class="card"><h3>Front-End Developer</h3><p>React, Vue, Tailwind CSS</p><button class="btn" style="margin-top:15px; padding: 8px 16px;" onclick="openJobForm('Front-End Developer')">Apply Now</button></div>
+                <div class="card"><h3>Back-End Developer</h3><p>Node.js, Express, Microservices</p><button class="btn" style="margin-top:15px; padding: 8px 16px;" onclick="openJobForm('Back-End Developer')">Apply Now</button></div>
+                <div class="card"><h3>Python Developer</h3><p>Django, FastAPI, AI pipelines</p><button class="btn" style="margin-top:15px; padding: 8px 16px;" onclick="openJobForm('Python Developer')">Apply Now</button></div>
+                <div class="card"><h3>Full Stack Engineer</h3><p>MERN Stack, Next.js</p><button class="btn" style="margin-top:15px; padding: 8px 16px;" onclick="openJobForm('Full Stack Engineer')">Apply Now</button></div>
+                <div class="card"><h3>UI/UX Designer</h3><p>Figma, User Research, Wireframing</p><button class="btn" style="margin-top:15px; padding: 8px 16px;" onclick="openJobForm('UI/UX Designer')">Apply Now</button></div>
+                <div class="card"><h3>AI / ML Engineer</h3><p>LLMs, GPT integration, Python</p><button class="btn" style="margin-top:15px; padding: 8px 16px;" onclick="openJobForm('AI / ML Engineer')">Apply Now</button></div>
+            </div>
         </div>
 
         <!-- PRIVACY POLICY -->
         <div id="page-privacy" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Privacy Policy</h1>
-            <p style="font-size: 1.05rem; color: #475569; margin-bottom: 15px;">Zen Alpha Solutions respects your privacy and complies with applicable Indian data protection standards regarding information collected through our platform.</p>
+            <p style="font-size: 1.05rem; color: #475569; margin-bottom: 15px;">Zen Alpha Solutions respects your privacy. This policy outlines how we handle information collected through our website in compliance with applicable Indian regulations.</p>
+            <h2>Information Collection</h2>
+            <p style="font-size: 1.05rem; color: #475569; margin-bottom: 15px;">We collect contact details and professional information that you voluntarily provide when filling out enquiry forms or applying for job openings.</p>
         </div>
 
         <!-- TERMS & CONDITIONS -->
         <div id="page-terms" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Terms & Conditions</h1>
-            <p style="font-size: 1.05rem; color: #475569; margin-bottom: 15px;">Use of zenasalphasolution.com is subject to our enterprise terms. All code and deliverables remain intellectual property of Zen Alpha Solutions.</p>
+            <p style="font-size: 1.05rem; color: #475569; margin-bottom: 15px;">By accessing zenasalphasolution.com, you agree to comply with these terms. All content and software materials remain the intellectual property of Zen Alpha Solutions.</p>
+            <h2>Jurisdiction</h2>
+            <p style="font-size: 1.05rem; color: #475569; margin-bottom: 15px;">Any legal disputes arising from our services shall be subject to the exclusive jurisdiction of the courts located in New Delhi, India.</p>
         </div>
 
         <!-- CONTACT PAGE -->
         <div id="page-contact" class="page-section">
             <div class="hero">
                 <div>
-                    <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Get in Touch</h1>
-                    <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Let's build something exceptional together.</p>
-                    <div class="card" style="background:#f8fafc; cursor: default;">
-                        <h3>Contact Information</h3>
-                        <p><strong>Email:</strong> chandrakar@zenalphasolution.com</p>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Get in Touch with Zen Alpha</h1>
+                    <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Let's discuss how we can support your upcoming projects.</p>
+                    <div class="card" style="background:#f8fafc; cursor: default; margin-bottom: 20px;">
+                        <h3>Corporate Headquarters</h3>
+                        <p><strong>Email:</strong> chandrakar@zenalphasolution.com | vipul@zenalphasolution.com</p>
                         <p><strong>Phone:</strong> <a href="tel:+918800927010">+91-8800927010</a></p>
-                        <p><strong>HQ:</strong> Westend Mall, Janakpuri West, New Delhi 110058</p>
+                        <p><strong>HQ:</strong> 303 B, 3rd floor, Westend Mall, Janakpuri West, New Delhi 110058</p>
+                    </div>
+                    <div class="card" style="background:#f8fafc; cursor: default;">
+                        <h3>Operational Hubs</h3>
+                        <p><strong>North Region:</strong> Noida Sector 62, Uttar Pradesh</p>
+                        <p><strong>Global Desk:</strong> Dubai, UAE & London, UK</p>
                     </div>
                 </div>
                 <div>
                     <div class="card" style="cursor: default;">
-                        <h3>Send a Message</h3>
+                        <h3>Enquiry / Request Quote</h3>
                         <form id="contactForm" onsubmit="handleAjaxForm(event, 'contactForm', 'contactThankYou')" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
                             <input type="hidden" name="_subject" value="Contact Form Enquiry - Zen Alpha">
                             <input type="text" name="name" class="enterprise-input" placeholder="Your Name" required>
                             <input type="email" name="email" class="enterprise-input" placeholder="Email Address" required>
                             <input type="tel" name="phone" class="enterprise-input" placeholder="Phone Number" required>
-                            <textarea name="message" class="enterprise-input" placeholder="Your Message..." rows="4" required style="resize: none;"></textarea>
+                            <textarea name="message" class="enterprise-input" placeholder="Which service are you looking for?" rows="4" required style="resize: none;"></textarea>
                             <button type="submit" class="btn">Send Message</button>
                         </form>
                         <div id="contactThankYou" style="display: none; text-align: center; padding: 20px 0;">
@@ -374,7 +412,7 @@
                 <a href="#software" onclick="switchPage('software')">Software Development</a>
                 <a href="#website-dev" onclick="switchPage('website-dev')">Website Development</a>
                 <a href="#seo-ppc" onclick="switchPage('seo-ppc')">SEO & Marketing</a>
-                <a href="#jobs" onclick="switchPage('jobs')">Staff Outsourcing</a>
+                <a href="#jobs-outsourcing" onclick="switchPage('jobs-outsourcing')">Staff Outsourcing</a>
             </div>
             <div>
                 <h3 style="color: #38bdf8; margin-bottom: 15px;">Company & Legal</h3>
@@ -423,6 +461,15 @@
 
         function openPopup() {
             document.getElementById('servicePopup').style.display = 'flex';
+        }
+
+        function openJobForm(roleName) {
+            document.getElementById('jobTitle').innerText = "Apply for: " + roleName;
+            document.getElementById('jobModal').style.display = 'flex';
+        }
+
+        function closeJobForm() {
+            document.getElementById('jobModal').style.display = 'none';
         }
 
         function handleAjaxForm(event, formId, thankYouId) {
