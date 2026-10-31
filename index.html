@@ -7,33 +7,86 @@
     <meta name="description" content="Zen Alpha Solutions is a premier technology partner in New Delhi offering custom software engineering, AI agents, digital marketing, and staff augmentation.">
     <link rel="canonical" href="https://zenalphasolution.com/">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Zen Alpha Solutions",
-      "image": "https://zenalphasolution.com/logo.png",
-      "@id": "https://zenalphasolution.com/",
-      "url": "https://zenalphasolution.com/",
-      "telephone": "+918800927010",
-      "email": "chandrakar@zenalphasolution.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "303 B, 3rd floor, Westend Mall, Janakpuri West",
-        "addressLocality": "New Delhi",
-        "postalCode": "110058",
-        "addressCountry": "IN"
-      }
-    }
-    </script>
     <style>
+        :root { 
+            --bg: #f8fafc; 
+            --ink: #0f172a; 
+            --primary: #0284c7; 
+            --primary-dark: #0369a1; 
+            --accent: #d97706; 
+            --surface: #ffffff; 
+            --border: #e2e8f0; 
+        }
+        * { box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 0; }
+        body { background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; border-radius: 12px; display: block; }
+
+        header { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); padding: 14px 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo-box { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, var(--primary), #10b981); border-radius: 10px; display: grid; place-items: center; color: white; font-weight: 900; font-size: 22px; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-text .zen { font-weight: 800; font-size: 20px; color: var(--ink); }
+        .logo-text .alpha { font-weight: 800; font-size: 11px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
+
+        nav { display: flex; gap: 15px; align-items: center; }
+        nav > a, .dropbtn { font-weight: 700; font-size: 13.5px; padding: 8px 12px; border-radius: 6px; transition: 0.2s; color: #334155; cursor: pointer; }
+        nav > a:hover, .dropdown:hover .dropbtn { background: #e0f2fe; color: var(--primary); }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #ffffff; min-width: 220px; box-shadow: 0px 10px 25px rgba(0,0,0,0.1); z-index: 101; border-radius: 12px; top: 100%; left: 0; padding: 8px 0; border: 1px solid var(--border); }
+        .dropdown:hover .dropdown-content { display: flex; flex-direction: column; }
+        .dropdown-content a { color: var(--ink); padding: 10px 18px; text-decoration: none; display: block; font-weight: 600; font-size: 13px; transition: 0.2s; }
+        .dropdown-content a:hover { background-color: #f1f5f9; color: var(--primary); padding-left: 22px; }
+
+        .hamburger { display: none; font-size: 24px; cursor: pointer; background: none; border: none; color: var(--ink); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px; }
+        .hero h1 { font-size: 3rem; line-height: 1.15; margin-bottom: 20px; color: var(--ink); }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.1rem; color: #475569; margin-bottom: 30px; }
+
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 26px; border-radius: 30px; font-weight: 800; font-size: 0.95rem; box-shadow: 0 10px 20px -5px rgba(2,132,199,0.4); transition: 0.3s; cursor: pointer; border: none; text-align: center; }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 30px; }
+        .card { background: var(--surface); padding: 25px; border-radius: 18px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04); border: 1px solid var(--border); transition: 0.3s; cursor: pointer; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 15px 25px -5px rgba(0,0,0,0.08); border-color: var(--primary); }
+        .card h3 { font-size: 1.35rem; margin: 12px 0 8px; color: var(--ink); }
+        .card p { color: #64748b; font-size: 0.95rem; }
+
+        .stats-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; background: var(--ink); color: white; padding: 40px; border-radius: 20px; text-align: center; margin: 50px 0; }
+        .stat-item h2 { font-size: 2.5rem; color: #38bdf8; margin-bottom: 5px; }
+        .stat-item p { color: #94a3b8; font-size: 0.95rem; }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 15px; }
+        .modal-box { background: #ffffff; width: 100%; max-width: 520px; padding: 30px; border-radius: 22px; box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.3); position: relative; border: 1px solid var(--border); max-height: 90vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 18px; right: 20px; width: 34px; height: 34px; background: #f1f5f9; border-radius: 50%; display: grid; place-items: center; font-size: 18px; font-weight: 800; color: #475569; cursor: pointer; transition: 0.2s; }
+        .modal-close:hover { background: #e2e8f0; color: var(--ink); }
+
+        .enterprise-input { width: 100%; padding: 11px 14px; border-radius: 9px; border: 1.5px solid var(--border); font-size: 0.95rem; color: var(--ink); background: #f8fafc; outline: none; transition: 0.2s; margin-top: 4px; }
+        .enterprise-input:focus { border-color: var(--primary); background: #ffffff; box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1); }
+        
         .page-section { display: none; }
         .page-section.active { display: block; animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+        footer { background: #1e293b; color: white; padding: 60px 20px 20px; margin-top: 60px; }
+
+        @media (max-width: 900px) {
+            header { padding: 12px 20px; }
+            .hamburger { display: block; }
+            nav { display: none; flex-direction: column; width: 100%; background: white; position: absolute; top: 100%; left: 0; padding: 20px; border-bottom: 1px solid var(--border); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+            nav.active { display: flex; }
+            .hero { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .hero h1 { font-size: 2.3rem; }
+            .dropdown-content { position: static; box-shadow: none; border: none; width: 100%; padding-left: 15px; background: #f8fafc; }
+        }
     </style>
 </head>
 <body>
+
     <!-- 10-Second Popup Modal -->
     <div id="servicePopup" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
         <div class="modal-box">
@@ -116,7 +169,7 @@
 
     <main class="container">
 
-        <!-- 1. HOME PAGE -->
+        <!-- HOME PAGE -->
         <div id="page-home" class="page-section active">
             <section class="hero">
                 <div>
@@ -126,7 +179,7 @@
                     <button class="btn" style="background: white; color: var(--ink); border: 2px solid var(--border); margin-left: 10px;" onclick="openPopup()">Quick Enquiry</button>
                 </div>
                 <div>
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80" alt="Enterprise Software Development" width="600" height="400" loading="lazy">
+                    <img src="/images/hero-tech.jpg" alt="Enterprise Software Development" width="600" height="400" loading="lazy">
                 </div>
             </section>
 
@@ -153,91 +206,90 @@
             </section>
         </div>
 
-        <!-- 2. ABOUT US PAGE -->
+        <!-- ABOUT PAGE -->
         <div id="page-about" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">About Zen Alpha</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Zen Alpha Solutions is headquartered in New Delhi, delivering robust technology, AI integrations, and digital marketing strategies to businesses globally.</p>
-            <p style="font-size: 1.1rem; color: #475569;">Our focus is on clean execution, operational transparency, and delivering measurable ROI for our partners.</p>
         </div>
 
-        <!-- 3. AI SERVICES PAGE -->
+        <!-- AI PAGE -->
         <div id="page-ai" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Artificial Intelligence Solutions</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">We build autonomous AI agents, fine-tune enterprise LLMs, and automate repetitive workflows securely.</p>
             <button class="btn" onclick="openPopup()">Enquire About AI</button>
         </div>
 
-        <!-- 4. SOFTWARE PAGE -->
+        <!-- SOFTWARE PAGE -->
         <div id="page-software" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Software & App Development</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Custom web applications and mobile apps built using React, Node.js, Python, and modern cloud stacks.</p>
-            <button class="btn" onclick="openPopup()">Discuss Your Software Project</button>
+            <button class="btn" onclick="openPopup()">Discuss Your Project</button>
         </div>
 
-        <!-- 5. IT CONSULTING PAGE -->
+        <!-- CONSULTING PAGE -->
         <div id="page-consulting" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">IT Consulting & vCTO Services</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Expert technical leadership, architecture reviews, cloud migration strategies, and security audits.</p>
             <button class="btn" onclick="openPopup()">Book a Consultation</button>
         </div>
 
-        <!-- 6. BULK SMS PAGE -->
+        <!-- BULK SMS PAGE -->
         <div id="page-bulk-sms" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Bulk SMS Services</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Fast transactional and promotional SMS delivery with 99.9% uptime and DLT compliance support.</p>
             <button class="btn" onclick="openPopup()">Get SMS Pricing</button>
         </div>
 
-        <!-- 7. BULK EMAIL PAGE -->
+        <!-- BULK EMAIL PAGE -->
         <div id="page-bulk-email" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Bulk Email Campaigns</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">High inbox placement rates backed by proper SPF, DKIM, and DMARC authentication protocols.</p>
             <button class="btn" onclick="openPopup()">Start Email Campaign</button>
         </div>
 
-        <!-- 8. BULK WHATSAPP PAGE -->
+        <!-- BULK WHATSAPP PAGE -->
         <div id="page-bulk-whatsapp" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Bulk WhatsApp API</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Official Meta WhatsApp API integration for automated alerts and secure client communication.</p>
             <button class="btn" onclick="openPopup()">Setup WhatsApp API</button>
         </div>
 
-        <!-- 9. WEBSITE DEV PAGE -->
+        <!-- WEBSITE DEV PAGE -->
         <div id="page-website-dev" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Website Development</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Lightning-fast, SEO-optimized business websites and high-conversion e-commerce stores.</p>
             <button class="btn" onclick="openPopup()">Build Your Website</button>
         </div>
 
-        <!-- 10. SEO / PPC PAGE -->
+        <!-- SEO / PPC PAGE -->
         <div id="page-seo-ppc" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">SEO / PPC Campaigns</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Dominate search engine rankings and maximize ROI through targeted Google and Meta ad campaigns.</p>
             <button class="btn" onclick="openPopup()">Boost Your SEO</button>
         </div>
 
-        <!-- 11. JOBS OUTSOURCING PAGE -->
+        <!-- JOBS PAGE -->
         <div id="page-jobs" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Full/Part Time Hiring & Staff Augmentation</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">Hire pre-vetted engineers and marketing professionals on flexible remote models without HR overheads.</p>
             <button class="btn" onclick="openPopup()">Hire Dedicated Talent</button>
         </div>
 
-        <!-- 12. FREELANCE PAGE -->
+        <!-- FREELANCE PAGE -->
         <div id="page-freelance" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Freelancing Projects</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">End-to-end milestone-based project execution for web apps, software modules, and marketing milestones.</p>
             <button class="btn" onclick="openPopup()">Outsource Project</button>
         </div>
 
-        <!-- 13. CONSULTANCY BPO PAGE -->
+        <!-- CONSULTANCY BPO PAGE -->
         <div id="page-consultancy" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Consultancy & BPO Services</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 20px;">24/7 omnichannel customer support, telecalling, lead generation, and back-office operations.</p>
             <button class="btn" onclick="openPopup()">Enquire About BPO</button>
         </div>
 
-        <!-- 14. BLOGS PAGE -->
+        <!-- BLOGS PAGE -->
         <div id="page-blogs" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Zen Alpha Tech & Business Blog</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 30px;">Insights on Artificial Intelligence, Software Engineering, and Digital Transformation.</p>
@@ -248,28 +300,26 @@
             </div>
         </div>
 
-        <!-- 15. CAREERS PAGE -->
+        <!-- CAREERS PAGE -->
         <div id="page-careers" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Careers at Zen Alpha</h1>
             <p style="font-size: 1.1rem; color: #475569; margin-bottom: 30px;">Join our growing technology team. Send your resume to our HR desk.</p>
             <button class="btn" onclick="openPopup()">Send Resume</button>
         </div>
 
-        <!-- 16. PRIVACY POLICY -->
+        <!-- PRIVACY POLICY -->
         <div id="page-privacy" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Privacy Policy</h1>
             <p style="font-size: 1.05rem; color: #475569; margin-bottom: 15px;">Zen Alpha Solutions respects your privacy and complies with applicable Indian data protection standards regarding information collected through our platform.</p>
-            <p style="font-size: 1.05rem; color: #475569;">For any privacy-related queries, reach us at chandrakar@zenalphasolution.com.</p>
         </div>
 
-        <!-- 17. TERMS & CONDITIONS -->
+        <!-- TERMS & CONDITIONS -->
         <div id="page-terms" class="page-section">
             <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Terms & Conditions</h1>
             <p style="font-size: 1.05rem; color: #475569; margin-bottom: 15px;">Use of zenasalphasolution.com is subject to our enterprise terms. All code and deliverables remain intellectual property of Zen Alpha Solutions.</p>
-            <p style="font-size: 1.05rem; color: #475569;">Jurisdiction for disputes shall lie in New Delhi, India.</p>
         </div>
 
-        <!-- 18. CONTACT PAGE -->
+        <!-- CONTACT PAGE -->
         <div id="page-contact" class="page-section">
             <div class="hero">
                 <div>
@@ -306,7 +356,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; padding: 0;">
             <div>
                 <div class="logo-box" style="margin-bottom: 15px;" onclick="switchPage('home')">
                     <div class="logo-icon" style="width:32px; height:32px; font-size: 16px;">Z</div>
@@ -345,8 +395,55 @@
         </div>
     </footer>
 
-    <script src="/js/app.js"></script>
+    <!-- SCRIPT -->
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (!sessionStorage.getItem("popupShown")) {
+                setTimeout(function() {
+                    var popup = document.getElementById('servicePopup');
+                    if (popup) {
+                        popup.style.display = 'flex';
+                        sessionStorage.setItem("popupShown", "true");
+                    }
+                }, 10000);
+            }
+
+            const hamburger = document.getElementById('hamburgerBtn');
+            const navMenu = document.getElementById('navMenu');
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+        });
+
+        function closePopup() {
+            document.getElementById('servicePopup').style.display = 'none';
+        }
+
+        function openPopup() {
+            document.getElementById('servicePopup').style.display = 'flex';
+        }
+
+        function handleAjaxForm(event, formId, thankYouId) {
+            event.preventDefault();
+            var form = document.getElementById(formId);
+            var formData = new FormData(form);
+
+            fetch("https://formsubmit.co/ajax/chandrakar@zenalphasolution.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                form.style.display = 'none';
+                document.getElementById(thankYouId).style.display = 'block';
+            })
+            .catch(error => {
+                alert("Oops! Something went wrong. Please try again later.");
+            });
+        }
+
         function switchPage(pageKey) {
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(sec => sec.classList.remove('active'));
@@ -359,7 +456,6 @@
             }
             window.scrollTo(0, 0);
             
-            // Close mobile menu if open
             const navMenu = document.getElementById('navMenu');
             if (navMenu) navMenu.classList.remove('active');
         }
