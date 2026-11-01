@@ -160,3 +160,13 @@ header .wrap{max-width:1280px}
 .rel{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:30px 0}
 .rel a{display:block;margin-top:6px}
 .back{display:inline-block;margin-bottom:14px;font-weight:700;color:var(--blue)}
+
+.pic{position:relative;display:block}
+.pic>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s;border-radius:16px}
+.pic.ok>img{opacity:1}
+.thumb .pic>img{border-radius:0}
+.thumb svg{height:190px}
+.card button.more{margin-top:14px;font-weight:700;color:var(--blue);font-size:14px;cursor:pointer;background:none;border:0;text-align:left;font-family:inherit;padding:0}
+.card .more+.more{margin-top:8px}
+.card button.more:hover,.card a.more:hover{text-decoration:underline}
+.post .pic>img{border-radius:12px}
