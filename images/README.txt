@@ -8,3 +8,7 @@ Eyestetix Studio, ICE FAMILY, Zulfugar Karimov.
 
 Slots that still show an illustration (add a JPG with this exact name if you want a photo):
 
+
+Replaced on 5 Nov 2026 with photos supplied by the site owner (licence to be confirmed by the owner):
+bulk-whatsapp.jpg, bulk-sms.jpg, bulk-email.jpg, website-development.jpg, ai.jpg, hiring.jpg, freelancing.jpg, seo-ppc.jpg
+Several show third-party app icons (WhatsApp, Instagram, Facebook etc.), which are trademarks of their owners.

@@ -26,7 +26,7 @@ if(!r.ok)throw new Error();
 ok.style.display='block';f.reset();btn.disabled=false;
 }).catch(function(){
 ok.style.display='block';ok.style.background='#fdecea';ok.style.color='#a12622';
-ok.textContent='Could not send. Please call +91-8800927010 or email chandrakar@zenalphasolution.com.';btn.disabled=false;
+ok.textContent='Could not send. Please call +91-8800927010 or email info@zenalphasolution.com or sales@zenalphasolution.com.';btn.disabled=false;
 })})});
 })();
 
@@ -45,10 +45,10 @@ function chips(list){var w=document.createElement('div');w.className='cb-q';list
 function menu(){chips([["Our services",services],["Get a quote",quote],["Careers",function(){bot("We are hiring developers, designers and AI engineers.",["See open positions","careers.html"]);menu()}],["Contact details",contact]])}
 function services(){bot("Which service are you interested in?");chips(S.map(function(x,i){return [x[0],function(){svc(i)}]}))}
 function svc(i){bot(S[i][2],["Learn more",S[i][1]]);d.service=S[i][0];chips([["Get a quote",quote],["Other services",services]])}
-function contact(){bot("Call +91-8800927010 or email chandrakar@zenalphasolution.com. Office: Westend Mall, Janakpuri West, New Delhi.",["Contact page","contact.html"]);chips([["Get a quote",quote],["Main menu",menu]])}
+function contact(){bot("Call +91-8800927010 or email info@zenalphasolution.com or sales@zenalphasolution.com. Office: New Delhi.",["Contact page","contact.html"]);chips([["Get a quote",quote],["Main menu",menu]])}
 function quote(){step='name';bot("Happy to help. What is your name?")}
 function fail(){bot("Sorry, we could not send that. Please call +91-8800927010 or use the contact page.",["Contact page","contact.html"])}
-function send(){var b=new URLSearchParams({'form-name':'chatlead',name:d.name,phone:d.phone,service:d.service||'Chat enquiry',message:'Lead from website chatbot'});fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b.toString()}).then(function(r){if(!r.ok)throw 0;bot("Thank you, "+d.name+". Our team will call you within 6 working hours.");chips([["Main menu",menu]])}).catch(fail)}
+function send(){var b=new URLSearchParams({'form-name':'chatlead',name:d.name,phone:d.phone,service:d.service||'Chat enquiry',message:'Lead from website chatbot',page_url:location.pathname,topic:((document.querySelector('h1')||{}).textContent||'').trim()});fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b.toString()}).then(function(r){if(!r.ok)throw 0;bot("Thank you, "+d.name+". Our team will call you within 6 working hours.");chips([["Main menu",menu]])}).catch(fail)}
 function answer(t){
  var x=t.toLowerCase();
  if(/price|cost|rate|quote|charge|budget/.test(x)){bot("Pricing depends on your requirement. Share your details and our team will send a quote.");return quote()}
@@ -66,4 +66,12 @@ box.querySelector('form').addEventListener('submit',function(e){
  if(step==='name'){d.name=t.slice(0,60);step='phone';return bot("Thanks "+d.name+". What is your phone number?")}
  if(step==='phone'){if(!/^[+\d][\d\s-]{7,14}$/.test(t)){return bot("Please enter a valid phone number, for example 8800927010.")}d.phone=t;step=null;return send()}
  answer(t)});
+})();
+
+(function(){
+var h=document.querySelector('h1');var topic=(h?h.textContent:document.title).replace(/\s+/g,' ').trim();
+document.querySelectorAll('input[name=page_url]').forEach(function(i){i.value=location.pathname});
+document.querySelectorAll('input[name=topic]').forEach(function(i){i.value=topic});
+var msg=encodeURIComponent('Hello Zen Alpha Solution, I am interested in: '+topic+'. Please contact me.');
+document.querySelectorAll('a[href^="https://wa.me/918800927010"]').forEach(function(a){a.href='https://wa.me/918800927010?text='+msg});
 })();

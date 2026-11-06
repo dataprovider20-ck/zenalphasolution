@@ -1,0 +1,8 @@
+{
+  "name": "zenalphasolution",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Zen Alpha Solution website (static HTML + Decap CMS blog)",
+  "scripts": { "build": "node build-cms.js" },
+  "dependencies": { "marked": "12.0.2" }
+}

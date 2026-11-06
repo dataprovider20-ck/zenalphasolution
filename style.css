@@ -168,5 +168,18 @@ header .wrap{max-width:1280px}
 .thumb svg{height:190px}
 .card button.more{margin-top:14px;font-weight:700;color:var(--blue);font-size:14px;cursor:pointer;background:none;border:0;text-align:left;font-family:inherit;padding:0}
 .card .more+.more{margin-top:8px}
+[hidden]{display:none!important}
+.pill{display:inline-block;padding:6px 13px;border:1px solid var(--line);border-radius:20px;margin:4px 4px 4px 0;font-size:14px;color:var(--blue);font-weight:600;text-decoration:none!important;background:#fff}
+.pill:hover{border-color:var(--blue)}
+.linkbtn{background:none;border:0;color:var(--blue);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0}
+.ck2{margin:0 0 16px 22px;color:#2b3a55;font-size:17px;line-height:1.75}
+.ck2 li{margin-bottom:6px}
+.rel2 h3{font-size:18px;margin:16px 0 4px}
 .card button.more:hover,.card a.more:hover{text-decoration:underline}
 .post .pic>img{border-radius:12px}
+
+.clients{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.cl{background:#fff;border:1px solid #e3e9f4;border-radius:12px;min-height:84px;display:flex;align-items:center;justify-content:center;padding:14px;text-align:center;font-family:'Source Serif 4',serif;font-weight:700;font-size:18px;color:#0b3d91}
+.cl img{max-width:100%;max-height:56px;object-fit:contain;display:block}
+.cl.ok span{display:none}
+@media(max-width:860px){.clients{grid-template-columns:repeat(2,1fr)}}

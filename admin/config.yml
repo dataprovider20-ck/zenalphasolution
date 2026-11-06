@@ -1,0 +1,42 @@
+# Decap CMS configuration for Zen Alpha Solution
+# STEP 1: change "repo" below to your GitHub repository, e.g. "mycompany/zenalphasolution"
+backend:
+  name: github
+  repo: dataprovider20-ck/zenalphasolution
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# Local testing only: works when opened on localhost with `npx decap-server` running. Ignored on the live site.
+local_backend: true
+
+# Drafts -> In Review -> Ready (publishing merges a pull request, so nothing goes live by mistake)
+publish_mode: editorial_workflow
+
+media_folder: "images"
+public_folder: "images"
+
+site_url: https://zenalphasolution.com
+display_url: https://zenalphasolution.com
+
+collections:
+  - name: blog
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "content/blog"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    summary: "{{title}} ({{date}})"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Title (shown as the page heading)", name: "title", widget: "string" }
+      - { label: "SEO title (max ~60 characters, optional)", name: "seo_title", widget: "string", required: false }
+      - { label: "Meta description (120-160 characters)", name: "description", widget: "text", pattern: ["^.{50,200}$", "Use 50 to 200 characters"] }
+      - { label: "Publish date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Hero image", name: "image", widget: "image", required: false, hint: "Leave empty to use the default image. 1200x900 JPG works best." }
+      - { label: "Image description (alt text)", name: "image_alt", widget: "string", required: false }
+      - { label: "Short summary for the blog list", name: "summary", widget: "text", required: false }
+      - { label: "Draft (hide from the website)", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Use ## for headings and ### for sub-headings. The page title is added automatically, so do not repeat it." }
