@@ -2,7 +2,7 @@
 # STEP 1: change "repo" below to your GitHub repository, e.g. "mycompany/zenalphasolution"
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME
+  repo: dataprovider20-ck/zenalphasolution
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
