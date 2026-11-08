@@ -8,6 +8,8 @@ const ROOT = __dirname;
 const DOM = 'https://zenalphasolution.com';
 const MARK = '<!--cms-generated-->';
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const aid = k => String(process.env[k] || '').trim().replace(/[^A-Za-z0-9_-]/g, '');
+fs.writeFileSync(path.join(__dirname, 'analytics-config.js'), 'window.ZEN_ANALYTICS=' + JSON.stringify({ ga4: aid('GA4_ID'), gtm: aid('GTM_ID'), clarity: aid('CLARITY_ID') }) + ';\n');
 const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 
 // Shared header and footer are copied from an existing page, so the menu always matches the rest of the site.
@@ -54,7 +56,7 @@ for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
   const mins = Math.max(1, Math.ceil(words / 220));
   const date = (meta.date || new Date().toISOString().slice(0, 10)).slice(0, 10);
   const nice = new Date(date + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-  const image = meta.image || 'images/ai-2.jpg';
+  const image = meta.image || 'images/ai-2.webp';
   const alt = meta.image_alt || title;
   const seoTitle = meta.seo_title || title;
   const desc = meta.description || '';
@@ -74,7 +76,7 @@ for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
     `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>${J(bc)}</head><body>\n` + HEADER +
     `<main><section class="ph"><div class="wrap"><div><a class="back" href="blogs.html">&larr; All Blogs</a><h1>${esc(title)}</h1><p class="meta">Published ${nice} &middot; ${mins} min read &middot; By Zen Alpha Solution</p><div class="cta"><a class="btn" href="contact.html">Get a Free Consultation</a></div></div>${pic(image, alt)}</div></section>` +
     `<article class="prose" style="padding-top:34px;padding-bottom:20px">${html}</article>` +
-    `<section><div class="wrap"><div class="band"><h2>Need help with your project?</h2><p>Tell us about your requirement and our experts will call you within 6 working hours.</p><div class="cta" style="justify-content:center"><button class="btn gold" data-enquiry="General enquiry">Get a Free Quote</button><a class="btn ghost" style="color:#fff;border-color:#fff" href="https://wa.me/918800927010" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn ghost" style="color:#fff;border-color:#fff" href="tel:+918800927010">Call Now</a></div></div></div></section>${J(post)}</main>` + FOOTER;
+    `<section><div class="wrap"><div class="band"><h2>Need help with your project?</h2><p>Tell us about your requirement and our experts will call you within 6 working hours.</p><div class="cta" style="justify-content:center"><button class="btn gold" data-enquiry="General enquiry">Get a Free Quote</button><a class="btn ghost" style="color:#fff;border-color:#fff" href="https://wa.me/917753871491" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn ghost" style="color:#fff;border-color:#fff" href="tel:+917753871491">Call Now</a></div></div></div></section>${J(post)}</main>` + FOOTER;
   fs.writeFileSync(outPath, page);
   posts.push({ slug, title, date, image, alt, summary: meta.summary || desc });
 }

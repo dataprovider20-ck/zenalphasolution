@@ -12,3 +12,5 @@ Slots that still show an illustration (add a JPG with this exact name if you wan
 Replaced on 5 Nov 2026 with photos supplied by the site owner (licence to be confirmed by the owner):
 bulk-whatsapp.jpg, bulk-sms.jpg, bulk-email.jpg, website-development.jpg, ai.jpg, hiring.jpg, freelancing.jpg, seo-ppc.jpg
 Several show third-party app icons (WhatsApp, Instagram, Facebook etc.), which are trademarks of their owners.
+
+Updated 6 Nov 2026: all photos except og-image.jpg were converted to WebP (smaller, faster). The JPG originals were removed from this folder; keep your own copies of the originals.

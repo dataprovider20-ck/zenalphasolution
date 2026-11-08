@@ -183,3 +183,26 @@ header .wrap{max-width:1280px}
 .cl img{max-width:100%;max-height:56px;object-fit:contain;display:block}
 .cl.ok span{display:none}
 @media(max-width:860px){.clients{grid-template-columns:repeat(2,1fr)}}
+p a[href^="mailto:"]+a[href^="mailto:"]{display:block;margin-top:2px}
+a[href^="mailto:"]{overflow-wrap:anywhere}
+.clients{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cl{min-width:0;overflow-wrap:anywhere}
+@media(max-width:860px){.clients{grid-template-columns:repeat(2,minmax(0,1fr))}.cl{font-size:16px}}
+/* mobile polish: header menu above floating buttons, menu fully reachable, smaller floating buttons */
+header{z-index:80}
+@media(max-width:1140px){.menu{max-height:calc(100vh - 72px);max-height:calc(100dvh - 72px);gap:10px;overscroll-behavior:contain}}
+@media(max-width:560px){.wa,.cb-btn{padding:10px 14px;font-size:14px}.wa{bottom:calc(68px + env(safe-area-inset-bottom,0px))}}
+/* touch targets: at least 44px tall on phones */
+@media(max-width:700px){
+a.pill,span.pill{min-height:44px;display:inline-flex;align-items:center}
+a.back{display:inline-flex;align-items:center;min-height:44px}
+button.linkbtn{min-height:44px}
+a.more,button.more{display:inline-flex;align-items:center;min-height:44px}
+}
+/* mobile menu: sub-menus stay closed until the visitor taps the group name */
+@media(max-width:1140px){
+.dd div,.dd:hover div,.dd:focus-within div{display:none}
+.menu .dd.open div{display:block}
+.dd>span{display:block;min-height:40px;line-height:40px}
+.dd>span::after{content:"";}
+}

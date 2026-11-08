@@ -2,7 +2,7 @@
 # STEP 1: change "repo" below to your GitHub repository, e.g. "mycompany/zenalphasolution"
 backend:
   name: github
-  repo: dataprovider20-ck/zenalphasolution
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
@@ -39,4 +39,4 @@ collections:
       - { label: "Image description (alt text)", name: "image_alt", widget: "string", required: false }
       - { label: "Short summary for the blog list", name: "summary", widget: "text", required: false }
       - { label: "Draft (hide from the website)", name: "draft", widget: "boolean", default: false }
-      - { label: "Body", name: "body", widget: "markdown", hint: "Use ## for headings and ### for sub-headings. The page title is added automatically, so do not repeat it." }
+      - { label: "Body", name: "body", widget: "markdown", modes: ["raw"], hint: "Use ## for headings and ### for sub-headings. The page title is added automatically, so do not repeat it." }

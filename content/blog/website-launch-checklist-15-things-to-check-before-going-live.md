@@ -1,13 +1,10 @@
 ---
 title: "Website Launch Checklist: 15 Things to Check Before Going Live"
-seo_title: Website Launch Checklist for Business Websites (15 Checks)
-description: Planning to launch a business website? Use this 15-point website
-  launch checklist covering SEO, speed, mobile, forms and security before you go
-  live.
+seo_title: "Website Launch Checklist for Business Websites (15 Checks)"
+description: "Planning to launch a business website? Use this 15-point website launch checklist covering SEO, speed, mobile, forms and security before you go live."
 date: 2026-11-06
-image_alt: Business team reviewing a website launch checklist on a laptop
-summary: A 15-point checklist covering content, SEO, speed, mobile, forms and
-  security to review before your business website goes live.
+image_alt: "Business team reviewing a website launch checklist on a laptop"
+summary: "A 15-point checklist covering content, SEO, speed, mobile, forms and security to review before your business website goes live."
 draft: false
 ---
 A new website feels finished the moment the design looks good. That is usually when the real checking should begin. Most launch-day problems are not about colours or fonts. They are broken forms, pages that Google cannot index, images that make mobile visitors wait, and links that lead nowhere.

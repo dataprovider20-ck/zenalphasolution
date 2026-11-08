@@ -9,3 +9,5 @@
   Cache-Control: public, max-age=3600
 /main.js
   Cache-Control: public, max-age=3600
+/analytics-config.js
+  Cache-Control: public, max-age=300
