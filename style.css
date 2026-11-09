@@ -206,3 +206,13 @@ a.more,button.more{display:inline-flex;align-items:center;min-height:44px}
 .dd>span{display:block;min-height:40px;line-height:40px}
 .dd>span::after{content:"";}
 }
+
+/* floating buttons lifted so they never overlap the hosting "Powered by" badge (bottom-right corner) */
+.cb-btn{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+.wa{bottom:calc(134px + env(safe-area-inset-bottom,0px))}
+.cb-box{bottom:calc(136px + env(safe-area-inset-bottom,0px));max-height:calc(100vh - 170px);max-height:calc(100dvh - 170px)}
+@media(max-width:560px){
+.cb-btn{bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+.wa{bottom:calc(122px + env(safe-area-inset-bottom,0px))}
+.cb-box{bottom:calc(122px + env(safe-area-inset-bottom,0px));max-height:calc(100dvh - 150px)}
+}
