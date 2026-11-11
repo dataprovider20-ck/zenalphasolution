@@ -115,4 +115,4 @@ For customers in India, bulk SMS and WhatsApp can carry time-sensitive messages 
 
 ## Need a hand before the rush?
 
-If your holiday campaigns have struggled with deliverability before, or you are sending at a larger scale than usual, it helps to check the setup before the busiest weeks. Our [bulk email service](bulk-email.html) covers domain authentication, list cleaning, segmentation and campaign setup. [Contact us](contact.html) with your plans and we will tell you what to fix first.
+If your holiday campaigns have struggled with deliverability before, or you are sending at a larger scale than usual, it helps to check the setup before the busiest weeks. Our [holiday email marketing service](holiday-email-marketing-services.html) and our [Black Friday and Christmas website readiness check](black-friday-christmas-website-readiness-check.html) are built for this season. Our [bulk email service](bulk-email.html) covers domain authentication, list cleaning, segmentation and campaign setup. [Contact us](contact.html) with your plans and we will tell you what to fix first.
