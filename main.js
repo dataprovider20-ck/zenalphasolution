@@ -88,7 +88,7 @@ function add(src){var s=document.createElement('script');s.async=true;s.src=src;
 try{
  if(c.gtm){window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});add('https://www.googletagmanager.com/gtm.js?id='+encodeURIComponent(c.gtm))}
  else if(c.ga4){add('https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(c.ga4));gtag('js',new Date());gtag('config',c.ga4)}
- if(c.clarity){(function(w,d,t,i){w[t]=w[t]||function(){(w[t].q=w[t].q||[]).push(arguments)};var s=d.createElement('script');s.async=1;s.src='https://www.clarity.ms/tag/'+i;d.head.appendChild(s)})(window,document,'clarity','script',c.clarity)}
+ if(c.clarity){(function(w,d,t,r,i){w[t]=w[t]||function(){(w[t].q=w[t].q||[]).push(arguments)};var s=d.createElement(r);s.async=1;s.src='https://www.clarity.ms/tag/'+encodeURIComponent(i);d.head.appendChild(s)})(window,document,'clarity','script',c.clarity)}
 }catch(e){}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';
  if(h.indexOf('wa.me')>-1||h.indexOf('whatsapp.com')>-1)window.zenTrack('click_whatsapp',{link_url:h});
