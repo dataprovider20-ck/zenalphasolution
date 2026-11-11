@@ -9,7 +9,7 @@ const DOM = 'https://zenalphasolution.com';
 const MARK = '<!--cms-generated-->';
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const aid = k => String(process.env[k] || '').trim().replace(/[^A-Za-z0-9_-]/g, '');
-fs.writeFileSync(path.join(__dirname, 'analytics-config.js'), 'window.ZEN_ANALYTICS=' + JSON.stringify({ ga4: aid('GA4_ID'), gtm: aid('GTM_ID'), clarity: aid('CLARITY_ID') }) + ';\n');
+fs.writeFileSync(path.join(__dirname, 'analytics-config.js'), 'window.ZEN_ANALYTICS=' + JSON.stringify({ ga4: aid('GA4_ID'), gtm: aid('GTM_ID'), clarity: aid('CLARITY_ID') || 'zc4fknq289' }) + ';\n');
 const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 
 // Shared header and footer are copied from an existing page, so the menu always matches the rest of the site.
