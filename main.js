@@ -85,11 +85,26 @@ window.zenTrack=function(name,params){try{
  else if(c.ga4){gtag('event',name,params||{})}
  }catch(e){}};
 function add(src){var s=document.createElement('script');s.async=true;s.src=src;document.head.appendChild(s)}
-try{
+var loaded=false,KEY='zen_cookie_consent',hasAny=!!(c.gtm||c.ga4||c.clarity);
+function loadAnalytics(){if(loaded)return;loaded=true;try{
  if(c.gtm){window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});add('https://www.googletagmanager.com/gtm.js?id='+encodeURIComponent(c.gtm))}
  else if(c.ga4){add('https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(c.ga4));gtag('js',new Date());gtag('config',c.ga4)}
- if(c.clarity){(function(w,d,t,r,i){w[t]=w[t]||function(){(w[t].q=w[t].q||[]).push(arguments)};var s=d.createElement(r);s.async=1;s.src='https://www.clarity.ms/tag/'+encodeURIComponent(i);d.head.appendChild(s)})(window,document,'clarity','script',c.clarity)}
-}catch(e){}
+ if(c.clarity){(function(w,d,t,r,i){w[t]=w[t]||function(){(w[t].q=w[t].q||[]).push(arguments)};var s=d.createElement(r);s.async=1;s.src='https://www.clarity.ms/tag/'+encodeURIComponent(i);d.head.appendChild(s)})(window,document,'clarity','script',c.clarity);try{window.clarity('consent')}catch(e){}}
+}catch(e){}}
+/* Cookie consent: analytics load only after the visitor accepts. The choice is kept in this browser. */
+function getChoice(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+function setChoice(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+function showBanner(){if(document.getElementById('ckb'))return;var d=document.createElement('div');d.id='ckb';d.className='ckb';d.setAttribute('role','dialog');d.setAttribute('aria-label','Cookie preferences');
+ d.innerHTML='<p>We use analytics cookies (Microsoft Clarity) to understand how visitors use this website and to improve it. They are only set if you accept. See our <a href="privacy.html">Privacy Policy</a>.</p><div class="ckb-b"><button type="button" class="btn" data-ck="denied">Reject</button><button type="button" class="btn" data-ck="granted">Accept</button></div>';
+ document.body.appendChild(d);
+ d.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-ck]');if(!b)return;var v=b.getAttribute('data-ck');setChoice(v);d.parentNode.removeChild(d);
+  if(v==='granted')loadAnalytics();else if(loaded)location.reload()})}
+if(hasAny){
+ var ch=getChoice();
+ if(ch==='granted')loadAnalytics();else if(ch!=='denied')showBanner();
+ var cp=document.querySelector('footer .copy');
+ if(cp){var a=document.createElement('a');a.href='#';a.id='ckset';a.textContent='Cookie settings';a.addEventListener('click',function(e){e.preventDefault();showBanner()});cp.appendChild(document.createTextNode(' · '));cp.appendChild(a)}
+}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';
  if(h.indexOf('wa.me')>-1||h.indexOf('whatsapp.com')>-1)window.zenTrack('click_whatsapp',{link_url:h});
  else if(h.indexOf('mailto:')===0)window.zenTrack('click_email',{link_url:h.replace('mailto:','')});
