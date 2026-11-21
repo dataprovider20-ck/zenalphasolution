@@ -70,7 +70,7 @@ label{font-size:14px;font-weight:600;display:grid;gap:5px}
 .contact strong{color:var(--ink)}
 .ok{display:none;background:#e6f6ec;color:#146c3a;padding:12px 14px;border-radius:8px;font-weight:600}
 footer{background:#0f1a30;color:#c8d2e6;padding:44px 0 90px;font-size:14px}
-footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer .wrap{display:grid;grid-template-columns:1.1fr 1fr .9fr 1.2fr 1.3fr;gap:24px}
 footer h4{color:#fff;margin-bottom:10px}
 footer a{display:block;margin-bottom:6px}
 footer a:hover{color:var(--gold)}

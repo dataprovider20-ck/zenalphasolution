@@ -38,6 +38,168 @@ function pic(src, alt) {
   return `<div class="pic"><img src="${esc(src)}" alt="${esc(alt)}" width="1200" height="900" fetchpriority="high" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"><svg viewBox="0 0 480 360" role="img" aria-label="${esc(alt)}" xmlns="http://www.w3.org/2000/svg"><rect width="480" height="360" fill="#eef3fb"/><circle cx="150" cy="120" r="34" fill="#0b3d91"/><path d="M90 250 Q150 160 210 250Z" fill="#0b3d91"/><circle cx="240" cy="100" r="40" fill="#e8a317"/><path d="M170 250 Q240 140 310 250Z" fill="#e8a317"/><circle cx="335" cy="120" r="34" fill="#3f6fc0"/><path d="M275 250 Q335 160 395 250Z" fill="#3f6fc0"/><rect y="300" width="480" height="60" fill="#0b3d91"/><text x="240" y="338" text-anchor="middle" font-family="Georgia,serif" font-size="21" font-weight="bold" fill="#fff">Zen Alpha Blog</text></svg></div>`;
 }
 
+// Related guides shown at the bottom of each blog page. Kept here (not in the CMS front matter) so editing a post in the CMS never removes them.
+const RELATED = {
+ "christmas-email-marketing-checklist": [
+  {
+   "u": "holiday-email-marketing-services.html",
+   "t": "Christmas & Holiday Email Marketing Services",
+   "d": "Holiday email campaigns for UK and US businesses: deliverability checks, list cleaning, segmentation, Christmas and Black Friday…"
+  },
+  {
+   "u": "spf-dkim-dmarc-why-bulk-emails-go-to-spam.html",
+   "t": "SPF, DKIM and DMARC Explained: Why Your Bulk Emails Go to Spam",
+   "d": "Why bulk emails land in spam, what SPF, DKIM and DMARC actually do, and a simple order to set them up so your campaigns reach the…"
+  },
+  {
+   "u": "bulk-email.html",
+   "t": "Bulk Email Services",
+   "d": "Execute high-converting email campaigns with robust domain authentication (SPF, DKIM and DMARC) for maximum inbox placement."
+  }
+ ],
+ "christmas-holiday-customer-support-outsourcing": [
+  {
+   "u": "holiday-customer-support-outsourcing.html",
+   "t": "Holiday Season Customer Support Outsourcing for UK & US Businesses",
+   "d": "Seasonal customer support for the Christmas and Black Friday peak: email, live chat and overnight cover for UK and US businesses, set…"
+  },
+  {
+   "u": "ai-chatbot-for-holiday-customer-service.html",
+   "t": "AI Chatbot for Holiday Season Customer Service",
+   "d": "An AI chatbot that answers order status, delivery and returns questions during the Christmas peak, connected to your store and handing…"
+  },
+  {
+   "u": "black-friday-christmas-website-readiness-check.html",
+   "t": "Black Friday & Christmas Website Readiness Check",
+   "d": "Get your website ready for Black Friday and Christmas traffic: speed, mobile checkout, forms, hosting and tracking checked and fixed…"
+  }
+ ],
+ "christmas-seo-checklist-small-business-uk-us-ireland": [
+  {
+   "u": "seo-ppc.html",
+   "t": "SEO & Paid Campaigns",
+   "d": "Dominate search results and drive targeted traffic through expert organic SEO and high-ROI Google and Meta paid ad campaigns."
+  },
+  {
+   "u": "black-friday-christmas-website-readiness-check.html",
+   "t": "Black Friday & Christmas Website Readiness Check",
+   "d": "Get your website ready for Black Friday and Christmas traffic: speed, mobile checkout, forms, hosting and tracking checked and fixed…"
+  },
+  {
+   "u": "google-business-profile-for-small-business-india.html",
+   "t": "Google Business Profile for Small Businesses in India: A Practical Setup Guide",
+   "d": "How to set up and grow a Google Business Profile for a small business in India: categories, service areas, verification, reviews and…"
+  }
+ ],
+ "google-business-profile-for-small-business-india": [
+  {
+   "u": "seo-ppc.html",
+   "t": "SEO & Paid Campaigns",
+   "d": "Dominate search results and drive targeted traffic through expert organic SEO and high-ROI Google and Meta paid ad campaigns."
+  },
+  {
+   "u": "digital-marketing-plan-for-small-business-90-day-framework.html",
+   "t": "A Digital Marketing Plan for a Small Business: The 90-Day Framework",
+   "d": "A practical 90-day digital marketing plan for small businesses: define a win, fix the basics, pick two channels, track key numbers and…"
+  },
+  {
+   "u": "christmas-seo-checklist-small-business-uk-us-ireland.html",
+   "t": "Christmas SEO for Small Businesses: A Practical Checklist for the UK, US and Ireland",
+   "d": "Christmas SEO checklist for small businesses in the UK, US and Ireland: holiday hours, seasonal landing pages, local search, mobile…"
+  }
+ ],
+ "spf-dkim-dmarc-why-bulk-emails-go-to-spam": [
+  {
+   "u": "bulk-email.html",
+   "t": "Bulk Email Services",
+   "d": "Execute high-converting email campaigns with robust domain authentication (SPF, DKIM and DMARC) for maximum inbox placement."
+  },
+  {
+   "u": "whatsapp-and-email-marketing-customer-retention.html",
+   "t": "Beyond SMS: WhatsApp Business API and Email Marketing for Customer Retention",
+   "d": "Learn how to combine the WhatsApp Business API and email marketing for customer retention, with tips on SPF, DKIM, DMARC, segmentation…"
+  },
+  {
+   "u": "christmas-email-marketing-checklist.html",
+   "t": "Christmas Email Marketing Checklist: Getting Holiday Campaigns Into the Inbox",
+   "d": "A practical Christmas email marketing checklist: list preparation, sending volume, timing across UK and US time zones, subject lines…"
+  }
+ ],
+ "website-launch-checklist-15-things-to-check-before-going-live": [
+  {
+   "u": "website-development.html",
+   "t": "Website Development",
+   "d": "Lightning-fast, mobile-responsive, SEO-optimized business websites and e-commerce platforms designed to convert visitors into loyal…"
+  },
+  {
+   "u": "black-friday-christmas-website-readiness-check.html",
+   "t": "Black Friday & Christmas Website Readiness Check",
+   "d": "Get your website ready for Black Friday and Christmas traffic: speed, mobile checkout, forms, hosting and tracking checked and fixed…"
+  },
+  {
+   "u": "digital-marketing-plan-for-small-business-90-day-framework.html",
+   "t": "A Digital Marketing Plan for a Small Business: The 90-Day Framework",
+   "d": "A practical 90-day digital marketing plan for small businesses: define a win, fix the basics, pick two channels, track key numbers and…"
+  }
+ ],
+ "working-with-a-development-team-in-india-guide-for-uk-us-founders": [
+  {
+   "u": "hiring.html",
+   "t": "Staff Outsourcing & Hiring",
+   "d": "Hire pre-vetted remote software engineers, developers and digital marketers tailored to your workflows, on a full-time or part-time…"
+  },
+  {
+   "u": "virtual-cto-services.html",
+   "t": "Virtual CTO Services for Startups and Growing Businesses",
+   "d": "Fractional CTO for startups and small businesses in the UK and USA: roadmap, vendor review, hiring and delivery oversight. Remote…"
+  },
+  {
+   "u": "software.html",
+   "t": "Software & App Development",
+   "d": "From idea to launch, we engineer fast and reliable web and mobile applications using modern stacks like React, Node.js, Python and…"
+  }
+ ],
+ "digital-marketing-plan-for-small-business-90-day-framework": [
+  {
+   "u": "seo-ppc.html",
+   "t": "SEO & Paid Campaigns",
+   "d": "Dominate search results and drive targeted traffic through expert organic SEO and high-ROI Google and Meta paid ad campaigns."
+  },
+  {
+   "u": "website-development.html",
+   "t": "Website Development",
+   "d": "Lightning-fast, mobile-responsive, SEO-optimized business websites and e-commerce platforms designed to convert visitors into loyal…"
+  },
+  {
+   "u": "google-business-profile-for-small-business-india.html",
+   "t": "Google Business Profile for Small Businesses in India: A Practical Setup Guide",
+   "d": "How to set up and grow a Google Business Profile for a small business in India: categories, service areas, verification, reviews and…"
+  }
+ ],
+ "_default": [
+  {
+   "u": "digital-marketing-plan-for-small-business-90-day-framework.html",
+   "t": "A Digital Marketing Plan for a Small Business: The 90-Day Framework",
+   "d": "A practical 90-day digital marketing plan for small businesses: define a win, fix the basics, pick two channels, track key numbers and…"
+  },
+  {
+   "u": "website-launch-checklist-15-things-to-check-before-going-live.html",
+   "t": "Website Launch Checklist: 15 Things to Check Before Going Live",
+   "d": "Planning to launch a business website? Use this 15-point website launch checklist covering SEO, speed, mobile, forms and security…"
+  },
+  {
+   "u": "working-with-a-development-team-in-india-guide-for-uk-us-founders.html",
+   "t": "Working With a Development Team in India: A Practical Guide for UK and US Founders",
+   "d": "How UK and US founders can work with a development team in India: choosing a model, vetting, time zones, contracts, security and the…"
+  }
+ ]
+};
+function related(slug) {
+  const list = RELATED[slug] || RELATED._default;
+  const cards = list.filter(x => x.u !== slug + '.html').map(x => `<div class="card"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p><a class="more" href="${x.u}">Read more &rarr;</a></div>`).join('');
+  return `<section class="alt"><div class="wrap"><h2>Related guides</h2><div class="grid">${cards}</div></div></section>`;
+}
+
 const posts = [];
 const dir = path.join(ROOT, 'content', 'blog');
 for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
@@ -76,7 +238,7 @@ for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
     `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>${J(bc)}</head><body>\n` + HEADER +
     `<main><section class="ph"><div class="wrap"><div><a class="back" href="blogs.html">&larr; All Blogs</a><h1>${esc(title)}</h1><p class="meta">Published ${nice} &middot; ${mins} min read &middot; By Zen Alpha Solution</p><div class="cta"><a class="btn" href="contact.html">Get a Free Consultation</a></div></div>${pic(image, alt)}</div></section>` +
     `<article class="prose" style="padding-top:34px;padding-bottom:20px">${html}</article>` +
-    `<section><div class="wrap"><div class="band"><h2>Need help with your project?</h2><p>Tell us about your requirement and our experts will call you within 6 working hours.</p><div class="cta" style="justify-content:center"><button class="btn gold" data-enquiry="General enquiry">Get a Free Quote</button><a class="btn ghost" style="color:#fff;border-color:#fff" href="https://wa.me/917753871491" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn ghost" style="color:#fff;border-color:#fff" href="tel:+917753871491">Call Now</a></div></div></div></section>${J(post)}</main>` + FOOTER;
+    related(slug) + `<section><div class="wrap"><div class="band"><h2>Need help with your project?</h2><p>Tell us about your requirement and our experts will call you within 6 working hours.</p><div class="cta" style="justify-content:center"><button class="btn gold" data-enquiry="General enquiry">Get a Free Quote</button><a class="btn ghost" style="color:#fff;border-color:#fff" href="https://wa.me/917753871491" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn ghost" style="color:#fff;border-color:#fff" href="tel:+917753871491">Call Now</a></div></div></div></section>${J(post)}</main>` + FOOTER;
   fs.writeFileSync(outPath, page);
   posts.push({ slug, title, date, image, alt, summary: meta.summary || desc });
 }
