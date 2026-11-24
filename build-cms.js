@@ -176,6 +176,16 @@ const RELATED = {
    "d": "How to set up and grow a Google Business Profile for a small business in India: categories, service areas, verification, reviews and…"
   }
  ],
+ "sms-marketing-rules-uk-us-consent-opt-out-10dlc": [
+  {"u":"bulk-sms.html","t":"Bulk SMS Services","d":"Reliable bulk SMS for promotions, alerts and reminders, with delivery reports and opt-out handling."},
+  {"u":"bulk-whatsapp.html","t":"Bulk WhatsApp Services","d":"Reach customers on WhatsApp with approved templates, broadcasts and automated replies."},
+  {"u":"whatsapp-and-email-marketing-customer-retention.html","t":"WhatsApp and Email Marketing for Retention","d":"How WhatsApp and email work together to keep customers coming back."}
+ ],
+ "website-accessibility-uk-us-small-business-wcag-checklist": [
+  {"u":"website-development.html","t":"Website Development","d":"Fast, mobile-responsive business websites built with sound structure and clean code."},
+  {"u":"website-launch-checklist-15-things-to-check-before-going-live.html","t":"Website Launch Checklist","d":"15 things to check before your website goes live."},
+  {"u":"contact.html","t":"Contact Us","d":"Tell us about your site and we will suggest the practical next steps."}
+ ],
  "_default": [
   {
    "u": "digital-marketing-plan-for-small-business-90-day-framework.html",
