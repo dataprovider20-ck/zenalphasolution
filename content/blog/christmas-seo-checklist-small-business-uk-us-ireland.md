@@ -3,6 +3,7 @@ title: "Christmas SEO for Small Businesses: A Practical Checklist for the UK, US
 seo_title: "Christmas SEO Checklist for Small Businesses (UK, US, Ireland)"
 description: "Christmas SEO checklist for small businesses in the UK, US and Ireland: holiday hours, seasonal landing pages, local search, mobile speed and January planning."
 date: 2026-11-13
+updated: 2026-11-25
 image: images/seo-ppc-2.webp
 image_alt: "Small business owner reviewing holiday search traffic on a laptop"
 summary: "How small businesses in the UK, US and Ireland can get found on Google during the Christmas season, from holiday hours and seasonal pages to local search and January planning."
@@ -23,6 +24,10 @@ Three things change during the holiday season.
 **Searches include dates and deadlines.** Phrases like "before Christmas", "order by" and "open today" appear far more often. Pages that answer those questions clearly have an advantage.
 
 **The calendar differs by country.** In the US, the season starts with Thanksgiving weekend, Black Friday and Cyber Monday. In the UK the big moments are Black Friday, the last posting dates and Boxing Day. In Ireland, 26 December is St Stephen's Day, and many businesses close or run sales around it. If you sell into more than one of these markets, your pages and hours should reflect each one.
+
+**Key dates for 2026.** Thanksgiving is on Thursday 26 November, Black Friday on 27 November and Cyber Monday on 30 November. Christmas Day falls on a Friday (25 December). Boxing Day is a Saturday, so in the UK the extra bank holiday moves to Monday 28 December. New Year's Day 2027 is a Friday. Last-order and last-posting dates differ by carrier and service and change each year, so confirm them with your own providers before you promise anything to customers.
+
+Put these dates in your calendar now and match your pages, listings and social posts to them.
 
 ## Step 1: Set your holiday hours on Google and Bing
 
@@ -117,6 +122,23 @@ Then, in January, write down what worked. Which page got the most visits? Which 
 ## A realistic word on timing
 
 If you start in December, you will not overtake large retailers for broad searches like "Christmas gifts". You can still win local, specific searches, the ones from people ready to buy nearby, by getting your hours, your page and your answers right. And everything you build this year keeps working next November.
+
+## Frequently asked questions
+
+### Is it too late to start Christmas SEO in late November?
+No, but be realistic. New pages need time to be found, so focus on things that work quickly: correct holiday hours on your listings, one clear seasonal page and answers to the questions customers actually type. Broad searches against big retailers are not the target.
+
+### Can I set holiday opening hours in advance?
+Yes. Google Business Profile lets you add special hours for specific dates ahead of time, and Bing Places has similar options. Set them early and check them again in the last week before Christmas.
+
+### Should I make a new page for Christmas every year?
+Keep the same address and update the content each year. A page that has been live and linked for several seasons usually has an advantage over a brand-new one.
+
+### Do social media posts help my Christmas SEO?
+They do not directly raise rankings, but they send visitors to your pages and can help people find your business when they search for it by name. Use the same dates and wording across channels.
+
+### Does Christmas SEO matter if I do not sell products?
+Yes. Service businesses still get searches such as "open on Christmas Eve" or "gift vouchers". Even a short, accurate page about your holiday hours and booking deadlines can win those local searches.
 
 ## Need help with Christmas SEO?
 

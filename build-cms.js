@@ -127,6 +127,11 @@ const RELATED = {
  ],
  "website-launch-checklist-15-things-to-check-before-going-live": [
   {
+   "u": "what-is-a-virtual-cto-vcto.html",
+   "t": "What Is a Virtual CTO (vCTO), and Does Your Business Need One?",
+   "d": "What a virtual CTO does, signs you need one, and how a vCTO differs from a consultant, full-time CTO or agency."
+  },
+  {
    "u": "website-development.html",
    "t": "Website Development",
    "d": "Lightning-fast, mobile-responsive, SEO-optimized business websites and e-commerce platforms designed to convert visitors into loyal…"
@@ -144,6 +149,11 @@ const RELATED = {
  ],
  "working-with-a-development-team-in-india-guide-for-uk-us-founders": [
   {
+   "u": "what-is-a-virtual-cto-vcto.html",
+   "t": "What Is a Virtual CTO (vCTO), and Does Your Business Need One?",
+   "d": "What a virtual CTO does, signs you need one, and how a vCTO differs from a consultant, full-time CTO or agency."
+  },
+  {
    "u": "hiring.html",
    "t": "Staff Outsourcing & Hiring",
    "d": "Hire pre-vetted remote software engineers, developers and digital marketers tailored to your workflows, on a full-time or part-time…"
@@ -160,6 +170,11 @@ const RELATED = {
   }
  ],
  "digital-marketing-plan-for-small-business-90-day-framework": [
+  {
+   "u": "what-is-a-virtual-cto-vcto.html",
+   "t": "What Is a Virtual CTO (vCTO), and Does Your Business Need One?",
+   "d": "What a virtual CTO does, signs you need one, and how a vCTO differs from a consultant, full-time CTO or agency."
+  },
   {
    "u": "seo-ppc.html",
    "t": "SEO & Paid Campaigns",
@@ -187,6 +202,11 @@ const RELATED = {
   {"u":"contact.html","t":"Contact Us","d":"Tell us about your site and we will suggest the practical next steps."}
  ],
  "_default": [
+  {
+   "u": "what-is-a-virtual-cto-vcto.html",
+   "t": "What Is a Virtual CTO (vCTO), and Does Your Business Need One?",
+   "d": "What a virtual CTO does, signs you need one, and how a vCTO differs from a consultant, full-time CTO or agency."
+  },
   {
    "u": "digital-marketing-plan-for-small-business-90-day-framework.html",
    "t": "A Digital Marketing Plan for a Small Business: The 90-Day Framework",
@@ -233,12 +253,20 @@ for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
   const seoTitle = meta.seo_title || title;
   const desc = meta.description || '';
   const url = `${DOM}/${slug}`;
+  const updated = (meta.updated || '').slice(0, 10);
+  const niceUp = updated ? new Date(updated + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
+  const faqItems = [];
+  const fm = body.match(/^##\s+Frequently asked questions\s*\n([\s\S]*?)(?=^##\s|$(?![\s\S]))/im);
+  if (fm) fm[1].split(/^###\s+/m).slice(1).forEach(b => {
+    const nl = b.indexOf('\n'); const q = b.slice(0, nl).trim(); const a = b.slice(nl + 1).trim();
+    if (q && a) faqItems.push({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ') } });
+  });
   const J = o => '<script type="application/ld+json">' + JSON.stringify(o) + '</script>';
   const bc = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: DOM + '/' },
     { '@type': 'ListItem', position: 2, name: 'Blogs', item: DOM + '/blogs' },
     { '@type': 'ListItem', position: 3, name: title, item: url }] };
-  const post = { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: seoTitle, description: desc, datePublished: date, dateModified: date,
+  const post = { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: seoTitle, description: desc, datePublished: date, dateModified: updated || date,
     image: `${DOM}/${image}`, author: { '@type': 'Organization', name: 'Zen Alpha Solution' }, publisher: { '@type': 'Organization', name: 'Zen Alpha Solution' }, mainEntityOfPage: url, wordCount: words };
   const page = `<!DOCTYPE html>\n${MARK}<html lang="en-IN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">` +
     `<title>${esc(seoTitle)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${url}"><link rel="icon" href="${FAVICON}">\n` +
@@ -246,9 +274,9 @@ for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
     `<link rel="stylesheet" href="style.css"><meta property="og:type" content="article"><meta property="og:site_name" content="Zen Alpha Solution"><meta property="og:title" content="${esc(seoTitle)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${DOM}/images/og-image.jpg"><meta name="twitter:card" content="summary_large_image">` +
     `<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="author" content="Zen Alpha Solution"><meta name="theme-color" content="#0b3d91"><meta property="og:locale" content="en_IN">` +
     `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>${J(bc)}</head><body>\n` + HEADER +
-    `<main><section class="ph"><div class="wrap"><div><a class="back" href="blogs.html">&larr; All Blogs</a><h1>${esc(title)}</h1><p class="meta">Published ${nice} &middot; ${mins} min read &middot; By Zen Alpha Solution</p><div class="cta"><a class="btn" href="contact.html">Get a Free Consultation</a></div></div>${pic(image, alt)}</div></section>` +
+    `<main><section class="ph"><div class="wrap"><div><a class="back" href="blogs.html">&larr; All Blogs</a><h1>${esc(title)}</h1><p class="meta">Published ${nice}${niceUp ? ' &middot; Updated ' + niceUp : ''} &middot; ${mins} min read &middot; By Zen Alpha Solution</p><div class="cta"><a class="btn" href="contact.html">Get a Free Consultation</a></div></div>${pic(image, alt)}</div></section>` +
     `<article class="prose" style="padding-top:34px;padding-bottom:20px">${html}</article>` +
-    related(slug) + `<section><div class="wrap"><div class="band"><h2>Need help with your project?</h2><p>Tell us about your requirement and our experts will call you within 6 working hours.</p><div class="cta" style="justify-content:center"><button class="btn gold" data-enquiry="General enquiry">Get a Free Quote</button><a class="btn ghost" style="color:#fff;border-color:#fff" href="https://wa.me/917753871491" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn ghost" style="color:#fff;border-color:#fff" href="tel:+917753871491">Call Now</a></div></div></div></section>${J(post)}</main>` + FOOTER;
+    related(slug) + `<section><div class="wrap"><div class="band"><h2>Need help with your project?</h2><p>Tell us about your requirement and our experts will call you within 6 working hours.</p><div class="cta" style="justify-content:center"><button class="btn gold" data-enquiry="General enquiry">Get a Free Quote</button><a class="btn ghost" style="color:#fff;border-color:#fff" href="https://wa.me/917753871491" target="_blank" rel="noopener">Chat on WhatsApp</a><a class="btn ghost" style="color:#fff;border-color:#fff" href="tel:+917753871491">Call Now</a></div></div></div></section>${J(post)}${faqItems.length ? J({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems }) : ''}</main>` + FOOTER;
   fs.writeFileSync(outPath, page);
   posts.push({ slug, title, date, image, alt, summary: meta.summary || desc });
 }
