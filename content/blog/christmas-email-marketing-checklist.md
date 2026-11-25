@@ -3,6 +3,7 @@ title: "Christmas Email Marketing Checklist: Getting Holiday Campaigns Into the 
 seo_title: "Christmas Email Marketing Checklist for Businesses"
 description: "A practical Christmas email marketing checklist: list preparation, sending volume, timing across UK and US time zones, subject lines and post-Christmas emails."
 date: 2026-11-11
+updated: 2026-11-25
 image: images/bulk-email-2.webp
 image_alt: "Laptop showing a holiday email campaign being scheduled"
 summary: "A step-by-step checklist for planning Christmas email campaigns that reach the inbox, from list preparation to January follow-ups."
@@ -44,6 +45,8 @@ Write down the dates that matter for your customers:
 - When returns and exchanges open after Christmas
 
 These dates give each email a real reason to exist. "Last day to order for Christmas delivery" is useful. A tenth generic "Holiday deals" email is not.
+
+**Key dates for 2026.** Thanksgiving is on Thursday 26 November, Black Friday on 27 November and Cyber Monday on 30 November. Christmas Day falls on a Friday (25 December). Boxing Day is a Saturday, so in the UK the extra bank holiday moves to Monday 28 December. New Year's Day 2027 is a Friday. Last-order and last-posting dates differ by carrier and service and change each year, so confirm them with your own providers before you promise anything to customers.
 
 ### 6. Segment instead of blasting
 
@@ -112,6 +115,23 @@ Note which subject lines, segments and send times performed best, and which emai
 ## Email and messaging together
 
 For customers in India, bulk SMS and WhatsApp can carry time-sensitive messages such as delivery updates, while email handles the fuller story. Our guide on [WhatsApp and email marketing for customer retention](whatsapp-and-email-marketing-customer-retention.html) covers how to combine them.
+
+## Frequently asked questions
+
+### When should I send my last Christmas email?
+Work backwards from your own last-order and delivery dates, not from the calendar alone. Send the final "order by" reminder early enough that customers can still act on it, and make it the last message that depends on those dates.
+
+### How many holiday emails is too many?
+There is no fixed number. Watch unsubscribe and complaint rates as you increase frequency, and cut back if they rise. Sending more to engaged subscribers and less to quiet ones is safer than raising volume for everyone.
+
+### Do I need to warm up my domain before December?
+If you plan to send much more than usual, yes. Raise volume gradually over several weeks and keep your authentication (SPF, DKIM and DMARC) in place. Our guide to [SPF, DKIM and DMARC](spf-dkim-dmarc-why-bulk-emails-go-to-spam.html) explains the setup.
+
+### Should I email people who have not opened anything for a long time?
+Be careful. Messages to disengaged contacts can hurt your sender reputation. Try one re-engagement email and remove people who do not respond before the busiest weeks.
+
+### Can I combine email with SMS or WhatsApp at Christmas?
+Yes, if each person has agreed to hear from you on that channel. See our [bulk email](bulk-email.html), [bulk SMS](bulk-sms.html) and [bulk WhatsApp](bulk-whatsapp.html) services, and read the consent rules in our guide to [SMS marketing rules in the UK and US](sms-marketing-rules-uk-us-consent-opt-out-10dlc.html).
 
 ## Need a hand before the rush?
 
