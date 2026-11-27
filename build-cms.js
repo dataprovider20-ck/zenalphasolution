@@ -201,6 +201,74 @@ const RELATED = {
   {"u":"website-launch-checklist-15-things-to-check-before-going-live.html","t":"Website Launch Checklist","d":"15 things to check before your website goes live."},
   {"u":"contact.html","t":"Contact Us","d":"Tell us about your site and we will suggest the practical next steps."}
  ],
+ "whatsapp-business-api-cost-in-india": [
+  {
+   "u": "bulk-whatsapp.html",
+   "t": "WhatsApp Business API Service in India",
+   "d": "Templates, opt-in, shared inbox and chatbot setup for Indian businesses."
+  },
+  {
+   "u": "whatsapp-business-api-for-business.html",
+   "t": "WhatsApp Business API: What It Is",
+   "d": "How the API works and how to get started."
+  },
+  {
+   "u": "bulk-sms.html",
+   "t": "Bulk SMS Service in India",
+   "d": "DLT help, promotional and transactional SMS, OTP API and delivery reports."
+  }
+ ],
+ "whatsapp-business-api-for-schools-and-coaching-institutes": [
+  {
+   "u": "bulk-whatsapp.html",
+   "t": "WhatsApp Business API Service in India",
+   "d": "Templates, opt-in, shared inbox and chatbot setup for Indian businesses."
+  },
+  {
+   "u": "whatsapp-business-api-cost-in-india.html",
+   "t": "WhatsApp Business API Cost in India",
+   "d": "What decides the cost, and the questions to ask any provider."
+  },
+  {
+   "u": "whatsapp-business-api-for-business.html",
+   "t": "WhatsApp Business API: What It Is",
+   "d": "How the API works and how to get started."
+  }
+ ],
+ "whatsapp-business-api-for-clinics-and-hospitals": [
+  {
+   "u": "bulk-whatsapp.html",
+   "t": "WhatsApp Business API Service in India",
+   "d": "Templates, opt-in, shared inbox and chatbot setup for Indian businesses."
+  },
+  {
+   "u": "whatsapp-business-api-cost-in-india.html",
+   "t": "WhatsApp Business API Cost in India",
+   "d": "What decides the cost, and the questions to ask any provider."
+  },
+  {
+   "u": "whatsapp-business-api-for-business.html",
+   "t": "WhatsApp Business API: What It Is",
+   "d": "How the API works and how to get started."
+  }
+ ],
+ "whatsapp-business-api-for-real-estate-india": [
+  {
+   "u": "bulk-whatsapp.html",
+   "t": "WhatsApp Business API Service in India",
+   "d": "Templates, opt-in, shared inbox and chatbot setup for Indian businesses."
+  },
+  {
+   "u": "whatsapp-business-api-cost-in-india.html",
+   "t": "WhatsApp Business API Cost in India",
+   "d": "What decides the cost, and the questions to ask any provider."
+  },
+  {
+   "u": "whatsapp-business-api-for-business.html",
+   "t": "WhatsApp Business API: What It Is",
+   "d": "How the API works and how to get started."
+  }
+ ],
  "_default": [
   {
    "u": "what-is-a-virtual-cto-vcto.html",
