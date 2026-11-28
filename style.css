@@ -230,3 +230,5 @@ a.more,button.more{display:inline-flex;align-items:center;min-height:44px}
 .prose th,.prose td{border:1px solid #d6dff0;padding:10px 14px;text-align:left;vertical-align:top}
 .prose th{background:#eef3fb;color:#0b3d91;font-weight:700}
 .prose tr:nth-child(even) td{background:#f8faff}
+
+footer .soc{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}footer .soc span{font-size:13px;color:#fff}footer .soc a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin:0;border-radius:50%;background:rgba(255,255,255,.1);color:#fff}footer .soc a:hover{background:var(--gold);color:#0f1a30}
