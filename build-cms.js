@@ -1,6 +1,7 @@
 // Builds blog pages from content/blog/*.md (written in Decap CMS at /admin).
 // Runs on every Netlify deploy, and locally with:  npm install && node build-cms.js
 const fs = require('fs');
+function srcsetFor(src){const m=/^images\/([a-z0-9-]+)\.webp$/.exec(src||'');if(!m||!fs.existsSync(`images/${m[1]}-480.webp`))return '';return ` srcset="images/${m[1]}-480.webp 480w, images/${m[1]}-800.webp 800w, images/${m[1]}.webp 1200w" sizes="(max-width:760px) 100vw, 480px"`;}
 const path = require('path');
 const { marked } = require('marked');
 
@@ -35,7 +36,7 @@ function parse(file) {
 }
 
 function pic(src, alt) {
-  return `<div class="pic"><img src="${esc(src)}" alt="${esc(alt)}" width="1200" height="900" fetchpriority="high" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"><svg viewBox="0 0 480 360" role="img" aria-label="${esc(alt)}" xmlns="http://www.w3.org/2000/svg"><rect width="480" height="360" fill="#eef3fb"/><circle cx="150" cy="120" r="34" fill="#0b3d91"/><path d="M90 250 Q150 160 210 250Z" fill="#0b3d91"/><circle cx="240" cy="100" r="40" fill="#e8a317"/><path d="M170 250 Q240 140 310 250Z" fill="#e8a317"/><circle cx="335" cy="120" r="34" fill="#3f6fc0"/><path d="M275 250 Q335 160 395 250Z" fill="#3f6fc0"/><rect y="300" width="480" height="60" fill="#0b3d91"/><text x="240" y="338" text-anchor="middle" font-family="Georgia,serif" font-size="21" font-weight="bold" fill="#fff">Zen Alpha Blog</text></svg></div>`;
+  return `<div class="pic"><img src="${esc(src)}"${srcsetFor(src)} alt="${esc(alt)}" width="1200" height="900" fetchpriority="high" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"><svg viewBox="0 0 480 360" role="img" aria-label="${esc(alt)}" xmlns="http://www.w3.org/2000/svg"><rect width="480" height="360" fill="#eef3fb"/><circle cx="150" cy="120" r="34" fill="#0b3d91"/><path d="M90 250 Q150 160 210 250Z" fill="#0b3d91"/><circle cx="240" cy="100" r="40" fill="#e8a317"/><path d="M170 250 Q240 140 310 250Z" fill="#e8a317"/><circle cx="335" cy="120" r="34" fill="#3f6fc0"/><path d="M275 250 Q335 160 395 250Z" fill="#3f6fc0"/><rect y="300" width="480" height="60" fill="#0b3d91"/><text x="240" y="338" text-anchor="middle" font-family="Georgia,serif" font-size="21" font-weight="bold" fill="#fff">Zen Alpha Blog</text></svg></div>`;
 }
 
 // Related guides shown at the bottom of each blog page. Kept here (not in the CMS front matter) so editing a post in the CMS never removes them.
